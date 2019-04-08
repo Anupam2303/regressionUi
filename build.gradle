@@ -1,0 +1,30 @@
+repositories {
+    jcenter()
+    mavenLocal()
+}
+
+buildscript {
+    repositories {
+        mavenLocal()
+        jcenter()
+    }
+    dependencies {
+        classpath("net.useraction-bdd:useraction-gradle-plugin:1.8.3")
+    }
+}
+
+apply plugin: 'java'
+apply plugin: 'eclipse'
+apply plugin: 'idea'
+apply plugin: 'net.useraction-bdd.aggregator'
+
+sourceCompatibility = 1.8
+targetCompatibility = 1.8
+
+dependencies {
+    compile 'net.useraction-bdd:useraction-core:1.8.3'
+    compile 'net.useraction-bdd:useraction-cucumber:1.6.6'
+    testCompile('junit:junit:4.12')
+    compile('org.assertj:assertj-core:3.8.0')
+}
+gradle.startParameter.continueOnFailure = true
